@@ -22,6 +22,10 @@ from .sub_agents.data_analyst import data_analyst_agent
 from .sub_agents.execution_analyst import execution_analyst_agent
 from .sub_agents.risk_analyst import risk_analyst_agent
 from .sub_agents.trading_analyst import trading_analyst_agent
+from .sub_agents.real_time_data_fetcher import real_time_data_fetcher_agent
+from .sub_agents.basic_pattern_recognition import basic_pattern_recognition_agent
+from .sub_agents.intraday_data_analyst import intraday_data_analyst_agent
+from .sub_agents.intraday_strategy_agent import intraday_strategy_agent
 
 MODEL = "gemini-2.5-pro-preview-05-06"
 
@@ -42,6 +46,10 @@ financial_coordinator = LlmAgent(
         AgentTool(agent=trading_analyst_agent),
         AgentTool(agent=execution_analyst_agent),
         AgentTool(agent=risk_analyst_agent),
+        AgentTool(agent=real_time_data_fetcher_agent),
+        AgentTool(agent=basic_pattern_recognition_agent),
+        AgentTool(agent=intraday_data_analyst_agent),
+        AgentTool(agent=intraday_strategy_agent),
     ],
 )
 
